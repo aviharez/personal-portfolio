@@ -5,6 +5,7 @@ import "./globals.css"
 import CustomCursor from "@/components/CustomCursor"
 import ScrollProgressIndicator from "@/components/ScrollProgressIndicator"
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const firaCode = Fira_Code({
   subsets: ["latin"],
@@ -57,6 +58,7 @@ export default function RootLayout({
         <CustomCursor />
         <div className="min-h-screen bg-terminal-bg">{children}</div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
