@@ -222,6 +222,8 @@ export default function Hero() {
                               <span className="ml-6 md:ml-12 syntax-string">'React'</span>
                               <span className="text-terminal-text">, </span>
                               <span className="syntax-string">'Angular'</span>
+                              <span className="text-terminal-text">, </span>
+                              <span className="syntax-string">'Next.js'</span>
                               <span className="text-terminal-text">];</span>
                             </>
                           )}
