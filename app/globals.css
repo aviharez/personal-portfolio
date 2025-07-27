@@ -1,0 +1,676 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+
+    /* Terminal theme variables */
+    --terminal-bg: #0d1117;
+    --terminal-surface: #161b22;
+    --terminal-border: #21262d;
+    --terminal-text: #c9d1d9;
+    --terminal-text-dim: #8b949e;
+    --syntax-green: #7ee787;
+    --syntax-blue: #79c0ff;
+    --syntax-yellow: #f2cc60;
+    --syntax-red: #ff7b72;
+    --syntax-orange: #ffa657;
+    --syntax-cyan: #39d0d6;
+    --pixel-green: #00ff00;
+    --pixel-cyan: #00ffff;
+    --pixel-yellow: #ffff00;
+    --pixel-red: #ff0040;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: var(--terminal-bg);
+    color: var(--terminal-text);
+    width: 100%;
+    max-width: 100vw;
+    font-family: "Fira Code", "Monaco", monospace;
+  }
+}
+
+/* Custom terminal styles */
+.pixel-font {
+  font-family: "Press Start 2P", monospace;
+}
+
+.mono-font {
+  font-family: "Fira Code", "Monaco", monospace;
+}
+
+/* Ensure all text uses Fira Code by default */
+* {
+  font-family: "Fira Code", "Monaco", monospace;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.terminal-window {
+  background: var(--terminal-surface);
+  border: 1px solid var(--terminal-border);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0; /* Prevent flex item from overflowing */
+}
+
+.terminal-header {
+  background: var(--terminal-border);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid var(--terminal-border);
+  width: 100%;
+  min-width: 0; /* Prevent overflow */
+}
+
+@media (min-width: 768px) {
+  .terminal-header {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+}
+
+.terminal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .terminal-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .terminal-dot {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.terminal-dot.red {
+  background: var(--syntax-red);
+}
+.terminal-dot.yellow {
+  background: var(--syntax-yellow);
+}
+.terminal-dot.green {
+  background: var(--syntax-green);
+}
+
+.terminal-content {
+  padding: 12px;
+  font-family: "Fira Code", "Monaco", monospace;
+  font-size: 10px;
+  line-height: 1.4;
+  width: 100%;
+  overflow-x: auto;
+  min-width: 0; /* Prevent overflow */
+}
+
+@media (min-width: 768px) {
+  .terminal-content {
+    padding: 16px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+@media (min-width: 1024px) {
+  .terminal-content {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* Responsive text handling */
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+code {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.syntax-highlight {
+  color: var(--syntax-green);
+}
+
+.syntax-string {
+  color: var(--syntax-yellow);
+}
+
+.syntax-number {
+  color: var(--syntax-orange);
+}
+
+.syntax-keyword {
+  color: var(--syntax-blue);
+}
+
+.syntax-comment {
+  color: var(--terminal-text-dim);
+  font-style: italic;
+}
+
+.pixel-border {
+  position: relative;
+  border: 2px solid var(--pixel-green);
+}
+
+.pixel-border::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--pixel-green), var(--pixel-cyan));
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.pixel-button {
+  background: var(--terminal-surface);
+  border: 2px solid var(--pixel-green);
+  color: var(--pixel-green);
+  font-family: "Press Start 2P", monospace;
+  font-size: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .pixel-button {
+    font-size: 10px;
+    padding: 12px 20px;
+  }
+}
+
+.pixel-button:hover {
+  background: var(--pixel-green);
+  color: var(--terminal-bg);
+  animation: neon-pulse 1.5s ease-in-out infinite;
+  transform: translateY(-3px) scale(1.05);
+}
+
+.retro-card {
+  background: rgba(15, 15, 35, 0.9);
+  border: 2px solid var(--syntax-green);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.retro-card:hover {
+  border-color: var(--pixel-cyan);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(57, 208, 214, 0.3), 0 0 30px rgba(57, 208, 214, 0.2);
+}
+
+.retro-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(57, 208, 214, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.retro-card:hover::before {
+  left: 100%;
+}
+
+.game-card {
+  background: var(--terminal-surface);
+  border: 2px solid var(--terminal-border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  width: 100%;
+  max-width: 100%;
+}
+
+.game-card:hover {
+  border-color: var(--pixel-cyan);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(57, 208, 214, 0.3), 0 0 40px rgba(57, 208, 214, 0.1);
+}
+
+.game-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--pixel-cyan), transparent);
+  transition: left 0.5s;
+}
+
+.game-card:hover::after {
+  left: 100%;
+}
+
+.typing-cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  animation: glitch-1 0.5s infinite;
+  color: var(--pixel-red);
+  z-index: -1;
+}
+
+.glitch-text::after {
+  animation: glitch-2 0.5s infinite;
+  color: var(--pixel-cyan);
+  z-index: -2;
+}
+
+@keyframes glitch-1 {
+  0%,
+  14%,
+  15%,
+  49%,
+  50%,
+  99%,
+  100% {
+    transform: translate(0);
+  }
+  15%,
+  49% {
+    transform: translate(-2px, 0);
+  }
+}
+
+@keyframes glitch-2 {
+  0%,
+  20%,
+  21%,
+  62%,
+  63%,
+  99%,
+  100% {
+    transform: translate(0);
+  }
+  21%,
+  62% {
+    transform: translate(2px, 0);
+  }
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@media (min-width: 768px) {
+  .status-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.status-dot.online {
+  background: var(--syntax-green);
+}
+.status-dot.busy {
+  background: var(--syntax-yellow);
+}
+.status-dot.offline {
+  background: var(--syntax-red);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: var(--terminal-surface);
+  border: 1px solid var(--terminal-border);
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+  font-size: 10px;
+  color: var(--terminal-text);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .tech-tag {
+    gap: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+.tech-tag:hover {
+  border-color: var(--pixel-cyan);
+  color: var(--pixel-cyan);
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(57, 208, 214, 0.2);
+  animation: code-highlight 1s ease-in-out;
+}
+
+.tech-tag::before {
+  content: "●";
+  color: var(--syntax-green);
+}
+
+/* Enhanced animations */
+@keyframes terminal-boot {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes code-highlight {
+  0% {
+    background: transparent;
+  }
+  50% {
+    background: rgba(126, 231, 135, 0.1);
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+@keyframes neon-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+@keyframes terminal-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.neon-glow {
+  text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor, 0 0 20px currentColor;
+}
+
+/* Header enhancements */
+.nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(57, 208, 214, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.nav-item:hover::before {
+  left: 100%;
+}
+
+.header-logo {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-logo:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 20px var(--syntax-green);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .pixel-font {
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+
+  .mono-font {
+    font-size: 0.7rem;
+    line-height: 1.3;
+  }
+
+  .grid {
+    gap: 0.75rem;
+  }
+
+  .terminal-window {
+    font-size: 10px;
+  }
+
+  .terminal-content {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pixel-font {
+    font-size: 0.6rem;
+    line-height: 1.1;
+  }
+
+  .mono-font {
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+
+  .terminal-content {
+    font-size: 8px;
+    padding: 8px;
+  }
+
+  .terminal-header {
+    padding: 6px 8px;
+  }
+}
+
+/* Fix horizontal scroll */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+section {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.grid {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Ensure all elements stay within viewport */
+* {
+  max-width: 100%;
+}
