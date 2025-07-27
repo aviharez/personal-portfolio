@@ -16,6 +16,25 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const smoothScrollTo = (elementId: string) => {
+    const element = document.querySelector(elementId)
+    if (element) {
+      const headerHeight = 80
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - headerHeight
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      })
+    }
+  }
+
+  const handleNavClick = (href: string) => {
+    setIsMenuOpen(false)
+    smoothScrollTo(href)
+  }
+
   const navItems = [
     { href: "#about", label: "about", icon: "📄" },
     { href: "#experience", label: "experience", icon: "💼" },
@@ -52,16 +71,16 @@ export default function Header() {
 
             <div className="hidden md:flex items-center gap-4 lg:gap-6">
               {navItems.map((item, index) => (
-                <a
+                <button
                   key={item.href}
-                  href={item.href}
+                  onClick={() => handleNavClick(item.href)}
                   className={`nav-item mono-font text-xs lg:text-sm text-terminal-text hover:text-syntax-cyan transition-all duration-400 relative group px-2 lg:px-3 py-2 animate-slide-in-up stagger-${index + 1}`}
                 >
                   <span className="mr-1 lg:mr-2 text-xs lg:text-sm">{item.icon}</span>
                   <span className="syntax-keyword">cd</span> <span className="syntax-string">~/{item.label}</span>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-syntax-cyan group-hover:w-full transition-all duration-400"></div>
                   <div className="absolute inset-0 bg-syntax-cyan/5 scale-0 group-hover:scale-100 transition-transform duration-300 rounded"></div>
-                </a>
+                </button>
               ))}
             </div>
 
@@ -87,11 +106,10 @@ export default function Header() {
                 <div className="terminal-content space-y-3">
                   <div className="mono-font text-xs text-syntax-comment">// Navigation menu</div>
                   {navItems.map((item, index) => (
-                    <a
+                    <button
                       key={item.href}
-                      href={item.href}
-                      className={`block mono-font text-xs text-terminal-text hover:text-syntax-cyan transition-all duration-300 p-2 rounded hover:bg-syntax-cyan/10 animate-slide-in-left stagger-${index + 1}`}
-                      onClick={() => setIsMenuOpen(false)}
+                      className={`block mono-font text-xs text-terminal-text hover:text-syntax-cyan transition-all duration-300 p-2 rounded hover:bg-syntax-cyan/10 animate-slide-in-left stagger-${index + 1} w-full text-left`}
+                      onClick={() => handleNavClick(item.href)}
                     >
                       <span className="syntax-keyword">function</span>{" "}
                       <span className="syntax-highlight">navigate_{item.label}</span>
@@ -101,12 +119,12 @@ export default function Header() {
                         // {item.icon} Go to {item.label} section
                       </span>
                       <br />
-                      <span className="ml-4 syntax-keyword">window.location</span>
+                      <span className="ml-4 syntax-keyword">window.scrollTo</span>
                       <span className="text-terminal-text"> = </span>
                       <span className="syntax-string">"{item.href}"</span>
                       <br />
                       <span className="text-terminal-text">{"}"}</span>
-                    </a>
+                    </button>
                   ))}
                 </div>
               </div>

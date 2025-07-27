@@ -84,6 +84,10 @@
 
   html {
     overflow-x: hidden;
+    /* Custom cursor */
+    cursor: none;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for fixed header */
   }
 
   body {
@@ -96,6 +100,434 @@
     width: 100%;
     max-width: 100vw;
     font-family: "Fira Code", "Monaco", monospace;
+    /* Custom cursor */
+    cursor: none;
+  }
+}
+
+/* Custom Cursor Styles - Optimized for smooth movement */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: var(--syntax-green);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+  will-change: transform;
+}
+
+.custom-cursor::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--syntax-cyan);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.4;
+  animation: cursor-pulse 2s infinite ease-in-out;
+}
+
+.custom-cursor.hover {
+  width: 32px;
+  height: 32px;
+  background: var(--syntax-cyan);
+  box-shadow: 0 0 20px var(--syntax-cyan);
+}
+
+.custom-cursor.hover::before {
+  width: 48px;
+  height: 48px;
+  border-width: 2px;
+  opacity: 0.6;
+}
+
+.custom-cursor.click {
+  width: 12px;
+  height: 12px;
+  background: var(--syntax-red);
+  box-shadow: 0 0 15px var(--syntax-red);
+}
+
+/* Cursor Trail */
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--syntax-green);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  animation: trail-fade 0.8s ease-out forwards;
+}
+
+@keyframes cursor-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.2;
+  }
+}
+
+@keyframes trail-fade {
+  0% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+}
+
+/* Hide cursor on interactive elements */
+a,
+button,
+input,
+textarea,
+select,
+[role="button"],
+.cursor-pointer,
+.retro-card,
+.game-card,
+.tech-tag {
+  cursor: none !important;
+}
+
+/* Enhanced Custom Scrollbar Styles with Advanced Animations */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--terminal-bg);
+  border-radius: 12px;
+  border: 2px solid var(--terminal-border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background pattern in scrollbar track */
+::-webkit-scrollbar-track::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 4px,
+    rgba(126, 231, 135, 0.1) 4px,
+    rgba(126, 231, 135, 0.1) 8px
+  );
+  animation: scrollbar-track-scan 5s linear infinite;
+}
+
+/* Glowing inner track */
+::-webkit-scrollbar-track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background: linear-gradient(
+    180deg,
+    rgba(57, 208, 214, 0.05) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(126, 231, 135, 0.05) 100%
+  );
+  border-radius: 8px;
+  animation: scrollbar-track-glow 4s ease-in-out infinite;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    45deg,
+    var(--syntax-green) 0%,
+    var(--syntax-cyan) 30%,
+    var(--syntax-blue) 60%,
+    var(--syntax-green) 100%
+  );
+  border-radius: 10px;
+  border: 2px solid var(--terminal-bg);
+  box-shadow: inset 0 0 10px rgba(126, 231, 135, 0.4), 0 0 20px rgba(126, 231, 135, 0.2), 0 0 30px
+    rgba(126, 231, 135, 0.1);
+  animation: scrollbar-thumb-glow 3s ease-in-out infinite;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Shine effect on scrollbar thumb */
+::-webkit-scrollbar-thumb::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.3) 80%,
+    transparent 100%
+  );
+  border-radius: 6px;
+  animation: scrollbar-thumb-shine 3s ease-in-out infinite;
+}
+
+/* Scrolling state animation */
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(
+    45deg,
+    var(--pixel-cyan) 0%,
+    var(--syntax-yellow) 25%,
+    var(--pixel-green) 50%,
+    var(--syntax-blue) 75%,
+    var(--pixel-cyan) 100%
+  );
+  box-shadow: inset 0 0 15px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.4), 0 0 50px rgba(255, 255, 0, 0.2);
+  animation: scrollbar-thumb-active-pulse 0.2s ease-out infinite;
+  transform: scale(1.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    45deg,
+    var(--syntax-cyan) 0%,
+    var(--syntax-blue) 30%,
+    var(--pixel-cyan) 60%,
+    var(--syntax-cyan) 100%
+  );
+  box-shadow: inset 0 0 15px rgba(57, 208, 214, 0.6), 0 0 35px rgba(57, 208, 214, 0.4), 0 0 50px rgba(57, 208, 214, 0.2);
+  animation: scrollbar-thumb-hover-glow 1s ease-in-out infinite;
+  transform: scale(1.15);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--terminal-bg);
+  border: 2px solid var(--terminal-border);
+  border-radius: 0 0 10px 0;
+}
+
+/* Scrollbar Animation Keyframes */
+@keyframes scrollbar-track-scan {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes scrollbar-track-glow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scaleY(1.02);
+  }
+}
+
+@keyframes scrollbar-thumb-glow {
+  0%,
+  100% {
+    box-shadow: inset 0 0 10px rgba(126, 231, 135, 0.4), 0 0 20px rgba(126, 231, 135, 0.2), 0 0 30px
+      rgba(126, 231, 135, 0.1);
+  }
+  50% {
+    box-shadow: inset 0 0 15px rgba(126, 231, 135, 0.6), 0 0 30px rgba(126, 231, 135, 0.4), 0 0 45px
+      rgba(126, 231, 135, 0.2);
+  }
+}
+
+@keyframes scrollbar-thumb-shine {
+  0%,
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+}
+
+@keyframes scrollbar-thumb-hover-glow {
+  0%,
+  100% {
+    box-shadow: inset 0 0 15px rgba(57, 208, 214, 0.6), 0 0 35px rgba(57, 208, 214, 0.4), 0 0 50px
+      rgba(57, 208, 214, 0.2);
+  }
+  50% {
+    box-shadow: inset 0 0 20px rgba(57, 208, 214, 0.8), 0 0 45px rgba(57, 208, 214, 0.6), 0 0 70px
+      rgba(57, 208, 214, 0.3);
+  }
+}
+
+@keyframes scrollbar-thumb-active-pulse {
+  0%,
+  100% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--syntax-green) 0%,
+    var(--syntax-cyan) 25%,
+    var(--syntax-blue) 50%,
+    var(--syntax-cyan) 75%,
+    var(--syntax-green) 100%
+  );
+  transform-origin: left;
+  z-index: 9999;
+  animation: scroll-progress-glow 3s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(126, 231, 135, 0.5);
+}
+
+@keyframes scroll-progress-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(126, 231, 135, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(126, 231, 135, 0.8);
+  }
+}
+
+/* Firefox scrollbar with enhanced styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--syntax-green) var(--terminal-bg);
+}
+
+/* Enhanced Terminal scrollbar for terminal windows */
+.terminal-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+  background: var(--terminal-surface);
+  border-radius: 8px;
+  border: 1px solid var(--terminal-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-content::-webkit-scrollbar-track::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 3px,
+    rgba(126, 231, 135, 0.1) 3px,
+    rgba(126, 231, 135, 0.1) 6px
+  );
+  animation: terminal-scrollbar-track-move 3s linear infinite;
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--syntax-green) 0%, var(--syntax-cyan) 50%, var(--syntax-green) 100%);
+  border-radius: 6px;
+  border: 1px solid var(--terminal-surface);
+  box-shadow: inset 0 0 8px rgba(126, 231, 135, 0.4), 0 0 12px rgba(126, 231, 135, 0.2);
+  animation: terminal-scrollbar-glow 2.5s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.terminal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--syntax-cyan) 0%, var(--syntax-blue) 50%, var(--syntax-cyan) 100%);
+  box-shadow: inset 0 0 12px rgba(57, 208, 214, 0.6), 0 0 20px rgba(57, 208, 214, 0.4);
+  animation: terminal-scrollbar-hover 0.8s ease-in-out infinite;
+  transform: scale(1.1);
+}
+
+.terminal-content::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, var(--pixel-cyan) 0%, var(--syntax-yellow) 50%, var(--pixel-cyan) 100%);
+  box-shadow: inset 0 0 15px rgba(255, 255, 0, 0.7), 0 0 25px rgba(255, 255, 0, 0.5);
+  animation: terminal-scrollbar-active 0.3s ease-out infinite;
+  transform: scale(1.2);
+}
+
+@keyframes terminal-scrollbar-track-move {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+@keyframes terminal-scrollbar-glow {
+  0%,
+  100% {
+    box-shadow: inset 0 0 8px rgba(126, 231, 135, 0.4), 0 0 12px rgba(126, 231, 135, 0.2);
+  }
+  50% {
+    box-shadow: inset 0 0 12px rgba(126, 231, 135, 0.6), 0 0 18px rgba(126, 231, 135, 0.3);
+  }
+}
+
+@keyframes terminal-scrollbar-hover {
+  0%,
+  100% {
+    transform: scale(1.1);
+    box-shadow: inset 0 0 12px rgba(57, 208, 214, 0.6), 0 0 20px rgba(57, 208, 214, 0.4);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: inset 0 0 16px rgba(57, 208, 214, 0.8), 0 0 28px rgba(57, 208, 214, 0.5);
+  }
+}
+
+@keyframes terminal-scrollbar-active {
+  0%,
+  100% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.25);
   }
 }
 
@@ -297,7 +729,7 @@ code {
   font-family: "Press Start 2P", monospace;
   font-size: 8px;
   padding: 8px 16px;
-  cursor: pointer;
+  cursor: none;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   text-transform: uppercase;
   position: relative;
@@ -631,6 +1063,28 @@ code {
   .terminal-content {
     font-size: 9px;
   }
+
+  /* Smaller cursor on mobile */
+  .custom-cursor {
+    width: 12px;
+    height: 12px;
+  }
+
+  .custom-cursor::before {
+    width: 24px;
+    height: 24px;
+  }
+
+  .cursor-trail {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* Smaller scrollbar on mobile */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -651,6 +1105,28 @@ code {
 
   .terminal-header {
     padding: 6px 8px;
+  }
+
+  /* Even smaller cursor on very small screens */
+  .custom-cursor {
+    width: 10px;
+    height: 10px;
+  }
+
+  .custom-cursor::before {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cursor-trail {
+    width: 4px;
+    height: 4px;
+  }
+
+  /* Even smaller scrollbar on very small screens */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
   }
 }
 
@@ -673,4 +1149,103 @@ section {
 /* Ensure all elements stay within viewport */
 * {
   max-width: 100%;
+}
+
+/* Mobile cursor adjustments */
+@media (hover: none) and (pointer: coarse) {
+  html,
+  body {
+    cursor: auto !important;
+  }
+
+  .custom-cursor,
+  .cursor-trail {
+    display: none;
+  }
+}
+
+/* Performance optimizations */
+.custom-cursor,
+.cursor-trail {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth scroll animations */
+@keyframes scroll-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-target {
+  animation: scroll-fade-in 0.6s ease-out;
+}
+
+/* Enhanced scroll behavior for sections */
+section {
+  scroll-margin-top: 80px;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Scroll indicator for active section */
+.section-active {
+  position: relative;
+}
+
+.section-active::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--syntax-green) 0%, var(--syntax-cyan) 50%, var(--syntax-green) 100%);
+  animation: section-glow 2s ease-in-out infinite;
+}
+
+@keyframes section-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px var(--syntax-green);
+    opacity: 0.8;
+  }
+  50% {
+    box-shadow: 0 0 20px var(--syntax-cyan);
+    opacity: 1;
+  }
+}
+
+/* Navigation active state */
+.nav-active {
+  color: var(--syntax-cyan) !important;
+  text-shadow: 0 0 10px var(--syntax-cyan);
+}
+
+.nav-active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--syntax-cyan);
+  animation: nav-active-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes nav-active-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px var(--syntax-cyan);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--syntax-cyan);
+  }
 }

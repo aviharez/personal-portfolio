@@ -66,7 +66,7 @@ export default function LoadingScreen() {
           <span className="mono-font text-sm text-terminal-text-dim ml-2">zain@portfolio:~$</span>
         </div>
         <div className="terminal-content">
-          <div className="pixel-font text-xl text-syntax-green mb-6">ZAIN.DEV</div>
+          <div className="pixel-font text-xl text-syntax-green mb-6">SNZAIN.DEV</div>
           <div className="mono-font text-sm text-terminal-text mb-4">
             {currentText}
             <span className="typing-cursor">_</span>

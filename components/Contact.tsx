@@ -97,7 +97,7 @@ export default function Contact() {
           variants={containerVariants}
         >
           <motion.h2
-            className="pixel-font text-2xl md:text-3xl lg:text-4xl text-syntax-green mb-4 cursor-default"
+            className="pixel-font text-2xl md:text-3xl lg:text-4xl text-syntax-green mb-4"
             variants={itemVariants}
             whileHover={{
               scale: 1.1,

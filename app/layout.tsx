@@ -2,6 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Fira_Code } from "next/font/google"
 import "./globals.css"
+import CustomCursor from "@/components/CustomCursor"
+import ScrollProgressIndicator from "@/components/ScrollProgressIndicator"
 
 const firaCode = Fira_Code({
   subsets: ["latin"],
@@ -10,8 +12,7 @@ const firaCode = Fira_Code({
 
 export const metadata: Metadata = {
   title: "Syifa Nurzain - Mobile & Web Developer",
-  description:
-    "Portfolio of Syifa Nurzain - Mobile & Web Developer",
+  description: "Portfolio of Syifa Nurzain - Mobile & Web Developer",
   keywords: "developer, full stack, react, android, kotlin, java, portfolio",
   icons: {
     icon: [
@@ -51,6 +52,8 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#0d1117" />
       </head>
       <body className={firaCode.className}>
+        <ScrollProgressIndicator />
+        <CustomCursor />
         <div className="min-h-screen bg-terminal-bg">{children}</div>
       </body>
     </html>
