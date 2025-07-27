@@ -103,11 +103,21 @@ export default function Hero() {
     },
   ]
 
+  const handleDownloadCV = () => {
+    const link = document.createElement("a")
+    link.href = "/cv/Syifa_Nurzain_CV.pdf"
+    link.download = "Syifa_Nurzain_CV.pdf"
+    link.target = "_blank"
+
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   return (
     <section className="min-h-screen flex items-center justify-center pt-16 md:pt-20 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
-          {/* Enhanced Code Editor Side - Fixed Responsive */}
           <ScrollAnimation animation="slide-right">
             <div className="terminal-window hover:scale-105 transition-all duration-500 w-full max-w-full">
               <div className="terminal-header">
@@ -246,7 +256,6 @@ export default function Hero() {
             </div>
           </ScrollAnimation>
 
-          {/* Enhanced Info Side */}
           <div className="space-y-4 md:space-y-6 lg:space-y-8">
             <ScrollAnimation animation="slide-left" delay={200}>
               <div>
@@ -285,7 +294,10 @@ export default function Hero() {
                 >
                   <span className="group-hover:animate-bounce pixel-font">VIEW_PROJECTS()</span>
                 </button>
-                <button className="pixel-button group text-sm">
+                <button 
+                  className="pixel-button group text-sm"
+                  onClick={handleDownloadCV}
+                >
                   <span className="group-hover:animate-bounce pixel-font">DOWNLOAD_CV()</span>
                 </button>
               </div>

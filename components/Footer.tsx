@@ -16,7 +16,6 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Left side - Developer info */}
           <motion.div className="flex items-center gap-2" whileHover={{ scale: 1.05 }}>
             <Terminal className="w-4 h-4 text-syntax-green animate-pulse" />
             <span className="mono-font text-sm text-terminal-text">
@@ -25,7 +24,6 @@ export default function Footer() {
             </span>
           </motion.div>
 
-          {/* Center - Made with love */}
           <motion.div className="flex items-center gap-2 text-xs text-terminal-text-dim" whileHover={{ scale: 1.05 }}>
             <span>Made with</span>
             <motion.div
@@ -43,7 +41,6 @@ export default function Footer() {
             </motion.div>
           </motion.div>
 
-          {/* Right side - Copyright */}
           <motion.div className="mono-font text-xs text-terminal-text-dim" whileHover={{ scale: 1.05 }}>
             © {currentYear} All rights reserved
           </motion.div>

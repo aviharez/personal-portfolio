@@ -280,9 +280,16 @@ export default function Projects() {
           viewport={{ once: true, amount: 0.3 }}
           variants={itemVariants}
         >
-          <motion.button className="pixel-button" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-            LOAD MORE PROJECTS
-          </motion.button>
+          <motion.div
+            className="flex items-center justify-center gap-3 text-terminal-text-dim"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="w-8 h-px bg-terminal-border"></div>
+            <div className="mono-font text-sm">
+              <span className="syntax-comment">// and many more projects under NDA</span>
+            </div>
+            <div className="w-8 h-px bg-terminal-border"></div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -32,13 +32,13 @@ export default function Contact() {
     {
       icon: <Github className="w-6 h-6 md:w-8 md:h-8" />,
       label: "GitHub",
-      href: "#",
+      href: "https://github.com/aviharez",
       color: "green",
     },
     {
       icon: <Linkedin className="w-6 h-6 md:w-8 md:h-8" />,
       label: "LinkedIn",
-      href: "#",
+      href: "https://www.linkedin.com/in/syifa-nurzain/",
       color: "blue",
     },
   ]

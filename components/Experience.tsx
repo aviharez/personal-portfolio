@@ -13,9 +13,8 @@ export default function Experience() {
       tasks: [
         "Conduct research and development for features to be implemented in the web and mobile product",
         "Conduct comprehensive code reviews to ensure adherence to quality standards and best practices",
-        "Coordinate with cross-functional project teams to gather and clarify application requirements",
-        "Maintain and optimize core libraries and modules for enhanced performance and reliability",
-        "Contribute to web product development initiatives and technical architecture decisions",
+        "Collaborate with cross-functional teams to deliver high-quality application",
+        "Maintain core aspect of the product to ensure optimal performance and reliability",
       ],
       color: "green",
     },
@@ -35,7 +34,7 @@ export default function Experience() {
       color: "pink",
     },
     {
-      title: "Android Developer & Team Lead",
+      title: "Android Developer",
       company: "PT Tokio Marine Life Insurance",
       location: "Jakarta, Indonesia",
       period: "August 2020 - June 2022",
@@ -70,7 +69,6 @@ export default function Experience() {
       type: "Full Time",
       tasks: [
         "Developed custom Android and web applications tailored to client specifications",
-        "Collaborated with design and product teams to deliver user-centric solutions",
         "Implemented responsive web interfaces and mobile application features",
         "Participated in project planning and technical requirement documentation",
       ],
