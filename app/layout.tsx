@@ -9,11 +9,10 @@ const firaCode = Fira_Code({
 })
 
 export const metadata: Metadata = {
-  title: "Syifa Nurzain - Full Stack Developer",
+  title: "Syifa Nurzain - Mobile & Web Developer",
   description:
-    "Portfolio of Syifa Nurzain - Full Stack Developer with 5+ years experience in mobile and web development",
-  keywords: "developer, full stack, react, android, kotlin, java, portfolio",
-    generator: 'v0.dev'
+    "Portfolio of Syifa Nurzain - Mobile & Web Developer with 5+ years experience in mobile and web development",
+  keywords: "developer, full stack, react, android, kotlin, java, portfolio"
 }
 
 export default function RootLayout({
