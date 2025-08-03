@@ -52,7 +52,6 @@ export default function Hero() {
           setTimeout(typeCode, 300)
         }
       } else {
-        // Restart animation after completion
         setTimeout(() => {
           setDisplayText("")
           lineIndex = 0
@@ -67,7 +66,6 @@ export default function Hero() {
       typeCode()
     }
 
-    // Cursor blinking
     intervalRef.current = setInterval(() => {
       setCursorVisible((prev) => !prev)
     }, 500)

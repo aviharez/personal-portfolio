@@ -8,10 +8,11 @@ import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
 import LoadingScreen from "@/components/LoadingScreen"
 import MatrixBackground from "@/components/MatrixBackground"
+import ErrorBoundary from "@/components/ErrorBoundary"
 
 export default function Home() {
   return (
-    <>
+    <ErrorBoundary>
       <LoadingScreen />
       <MatrixBackground />
       <div className="relative">
@@ -26,6 +27,6 @@ export default function Home() {
         </main>
         <Footer />
       </div>
-    </>
+    </ErrorBoundary>
   )
 }

@@ -149,7 +149,7 @@ export default function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          // variants={itemVariants}
+          variants={itemVariants}
         >
           <div className="terminal-window max-w-4xl mx-auto">
             <div className="terminal-header">

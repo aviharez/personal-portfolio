@@ -261,13 +261,6 @@ export default function Projects() {
                     </motion.span>
                   )}
                 </div>
-                <div className="flex space-x-2">
-                  <motion.div
-                    className={`w-2 h-2 rounded-full ${getStatusColor(project.status)} ${project.status === "ARCHIVED" ? "" : "animate-pulse"}`}
-                    animate={project.status !== "ARCHIVED" ? { scale: [1, 1.2, 1] } : {}}
-                    transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}
-                  />
-                </div>
               </div>
             </motion.div>
           ))}

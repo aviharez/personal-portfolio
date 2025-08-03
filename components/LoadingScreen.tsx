@@ -1,12 +1,13 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 export default function LoadingScreen() {
   const [loading, setLoading] = useState(true)
   const [fadeOut, setFadeOut] = useState(false)
   const [progress, setProgress] = useState(0)
   const [currentText, setCurrentText] = useState("")
+  const timersRef = useRef<Array<NodeJS.Timeout>>([])
 
   const bootSequence = [
     "Initializing system...",
@@ -19,55 +20,71 @@ export default function LoadingScreen() {
   useEffect(() => {
     let textIndex = 0
     let charIndex = 0
+    let isActive = true
 
     const typeText = () => {
-      if (textIndex < bootSequence.length) {
-        if (charIndex < bootSequence[textIndex].length) {
-          setCurrentText(bootSequence[textIndex].slice(0, charIndex + 1))
-          charIndex++
-          setTimeout(typeText, 50)
-        } else {
-          setTimeout(() => {
-            textIndex++
-            charIndex = 0
-            if (textIndex < bootSequence.length) {
-              setCurrentText("")
-              typeText()
-            }
-          }, 800)
-        }
+      if (!isActive || textIndex >= bootSequence.length) return
+
+      if (charIndex < bootSequence[textIndex].length) {
+        setCurrentText(bootSequence[textIndex].slice(0, charIndex + 1))
+        charIndex++
+        const timer = setTimeout(typeText, 60)
+        timersRef.current.push(timer)
+      } else {
+        const timer = setTimeout(() => {
+          if (!isActive) return
+          textIndex++
+          charIndex = 0
+          if (textIndex < bootSequence.length) {
+            setCurrentText("")
+            typeText()
+          }
+        }, 600)
+        timersRef.current.push(timer)
       }
     }
 
     const progressTimer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(progressTimer)
-          setTimeout(() => {
-            setFadeOut(true)
-            setTimeout(() => setLoading(false), 800)
-          }, 500)
-          return 100
-        }
-        return prev + 2
-      })
-    }, 80)
+      if (!isActive) return
+      
+              setProgress((prev) => {
+          if (prev >= 100) {
+            clearInterval(progressTimer)
+            const timer = setTimeout(() => {
+              if (!isActive) return
+              setFadeOut(true)
+              const finalTimer = setTimeout(() => {
+                if (isActive) setLoading(false)
+              }, 600)
+              timersRef.current.push(finalTimer)
+            }, 300)
+            timersRef.current.push(timer)
+            return 100
+          }
+          return prev + 3
+        })
+      }, 60)
 
     typeText()
 
-    return () => clearInterval(progressTimer)
+    return () => {
+      isActive = false
+      clearInterval(progressTimer)
+      timersRef.current.forEach(timer => clearTimeout(timer))
+      timersRef.current = []
+    }
   }, [])
 
   if (!loading) return null
 
   return (
     <div
-      className={`fixed inset-0 z-50 bg-terminal-bg flex items-center justify-center transition-all duration-800 ease-in-out ${
+      className={`fixed inset-0 z-50 bg-terminal-bg flex items-center justify-center transition-all duration-600 ease-in-out ${
         fadeOut ? "opacity-0 scale-95 blur-sm" : "opacity-100 scale-100 blur-0"
       }`}
     >
       <div
-        className={`terminal-window !w-96 transition-all duration-800 ease-in-out ${
+        className={`terminal-window !w-96 transition-all duration-600 ease-in-out ${
           fadeOut ? "transform scale-90 opacity-0" : "transform scale-100 opacity-100"
         }`}
       >
@@ -88,13 +105,12 @@ export default function LoadingScreen() {
               className="h-full bg-gradient-to-r from-syntax-green via-syntax-cyan to-syntax-blue transition-all duration-100 relative"
               style={{ width: `${progress}%` }}
             >
-              {/* Animated shine effect on progress bar */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
             </div>
           </div>
           <div className="mono-font text-xs text-terminal-text-dim flex justify-between items-center">
             <span>[{progress.toString().padStart(3, "0")}%] Loading complete...</span>
-            {progress === 100 && <span className="text-syntax-green animate-pulse">✓ Ready</span>}
+            {progress === 100 && <span className="text-syntax-green">✓ Ready</span>}
           </div>
         </div>
       </div>
