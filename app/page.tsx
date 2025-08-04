@@ -7,14 +7,14 @@ import Skills from "@/components/Skills"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
 import LoadingScreen from "@/components/LoadingScreen"
-import MatrixBackground from "@/components/MatrixBackground"
 import ErrorBoundary from "@/components/ErrorBoundary"
+import Background from "@/components/Background"
 
 export default function Home() {
   return (
     <ErrorBoundary>
       <LoadingScreen />
-      <MatrixBackground />
+      <Background />
       <div className="relative">
         <Header />
         <main>
