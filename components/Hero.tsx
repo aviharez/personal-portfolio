@@ -260,14 +260,14 @@ export default function Hero() {
             <ScrollAnimation animation="slide-left" delay={200}>
               <div>
                 <div className="pixel-font text-lg md:text-2xl lg:text-4xl text-syntax-green mb-3 md:mb-4 break-words">
-                  <span className="pixel-font glitch-text" data-text="SYIFA NURZAIN">
-                    SYIFA NURZAIN
+                  <span className="pixel-font glitch-text" data-text="ZAIN SI GANTENG">
+                    ZAIN SI GANTENG
                   </span>
                 </div>
                 <div className="mono-font text-sm md:text-base lg:text-lg text-syntax-cyan mb-3 md:mb-4 lg:mb-6 break-words">
                   <span className="syntax-keyword">const</span> <span className="syntax-highlight">role</span>{" "}
                   <span className="text-terminal-text">=</span>{" "}
-                  <span className="syntax-string">"Mobile & Web Developer"</span>
+                  <span className="syntax-string">"Tester"</span>
                 </div>
                 <div className="mono-font text-terminal-text leading-relaxed mb-4 md:mb-6 space-y-1 text-sm md:text-base">
                   <div>
