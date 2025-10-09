@@ -87,7 +87,7 @@ export default function Hero() {
     },
     {
       icon: Zap,
-      value: "25+",
+      value: "100+",
       label: "projects",
       colorClass: "text-syntax-yellow",
       delay: "0.4s",
