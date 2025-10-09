@@ -8,7 +8,7 @@ export default function Contact() {
     {
       icon: <Mail className="w-5 h-5 md:w-6 md:h-6" />,
       label: "EMAIL",
-      value: "elzainsyifa@gmail.com",
+      value: "syifanurzain20@gmail.com",
       href: "mailto:elzainsyifa@gmail.com",
       color: "green",
     },
