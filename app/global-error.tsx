@@ -10,59 +10,36 @@ export default function GlobalError({
   reset: () => void
 }) {
   useEffect(() => {
-    console.error('Global error caught:', error)
+    console.error('Global error:', error)
   }, [error])
 
   return (
-    <html>
+    <html lang="en" data-theme="dark">
+      <head>
+        <style>{`
+          body { margin: 0; background: oklch(0.155 0.004 155); color: oklch(0.945 0.004 155);
+                 font-family: ui-monospace, monospace; display: flex; align-items: center;
+                 justify-content: center; min-height: 100vh; }
+          .box { max-width: 480px; padding: 48px 40px; border: 1px solid oklch(0.985 0 0 / 0.10); }
+          h1 { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+               color: oklch(0.76 0.075 158); margin: 0 0 24px; }
+          p  { font-size: 13px; color: oklch(0.70 0.006 155); line-height: 1.7; margin: 0 0 8px; }
+          small { font-size: 11px; color: oklch(0.50 0.006 155); }
+          button { margin-top: 28px; font-family: inherit; font-size: 11px; letter-spacing: 0.14em;
+                   text-transform: uppercase; padding: 12px 22px; border-radius: 100px; cursor: pointer;
+                   border: 1px solid oklch(0.76 0.075 158); background: oklch(0.76 0.075 158);
+                   color: oklch(0.20 0.04 158); }
+        `}</style>
+      </head>
       <body>
-        <div className="min-h-screen bg-terminal-bg flex items-center justify-center p-4">
-          <div className="terminal-window max-w-lg w-full">
-            <div className="terminal-header">
-              <div className="terminal-dot red"></div>
-              <div className="terminal-dot yellow"></div>
-              <div className="terminal-dot green"></div>
-              <span className="mono-font text-sm text-terminal-text-dim ml-2">global-error@portfolio:~$</span>
-            </div>
-            <div className="terminal-content p-6">
-              <div className="pixel-font text-lg text-syntax-red mb-4">🚨 CRITICAL SYSTEM ERROR</div>
-              <div className="mono-font text-sm text-terminal-text mb-4">
-                <p className="mb-2">A critical error has occurred in the application.</p>
-                <p className="text-terminal-text-dim text-xs mb-4">
-                  Error: {error.message || "Unknown error"}
-                </p>
-                {error.digest && (
-                  <p className="text-terminal-text-dim text-xs mb-4">
-                    Error ID: {error.digest}
-                  </p>
-                )}
-                <details className="text-xs text-terminal-text-dim">
-                  <summary className="cursor-pointer hover:text-terminal-text mb-2">
-                    View Error Stack
-                  </summary>
-                  <pre className="bg-terminal-surface p-2 rounded text-xs overflow-auto max-h-32">
-                    {error.stack}
-                  </pre>
-                </details>
-              </div>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => reset()}
-                  className="pixel-button text-xs"
-                >
-                  Try Again
-                </button>
-                <button
-                  onClick={() => window.location.reload()}
-                  className="pixel-button text-xs"
-                >
-                  Reload Page
-                </button>
-              </div>
-            </div>
-          </div>
+        <div className="box">
+          <h1>Something went wrong</h1>
+          <p>{error.message || 'An unexpected error occurred.'}</p>
+          {error.digest && <small>ID: {error.digest}</small>}
+          <br />
+          <button onClick={reset}>Try again</button>
         </div>
       </body>
     </html>
   )
-} 
+}
