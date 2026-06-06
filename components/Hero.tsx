@@ -15,15 +15,15 @@ export default function Hero() {
     "class Developer {",
     "  constructor() {",
     "    this.name = 'Syifa Nurzain';",
-    "    this.role = 'Mobile & Front End Developer';",
-    "    this.experience = '5+ years';",
+    "    this.role = 'Mobile & Web Engineer';",
+    "    this.experience = '6+ years';",
     "    this.passion = 'Building apps';",
     "    this.status = 'Available';",
     "  }",
     "",
     "  getSkills() {",
-    "    return ['Java', 'Kotlin',",
-    "            'React', 'Node.js'];",
+    "    return ['Kotlin', 'TypeScript',",
+    "            'React', 'Angular'];",
     "  }",
     "",
     "  buildAwesomeApps() {",
@@ -80,7 +80,7 @@ export default function Hero() {
   const stats = [
     {
       icon: Code,
-      value: "5+",
+      value: "6+",
       label: "years_exp",
       colorClass: "text-syntax-green",
       delay: "0.2s",
@@ -103,8 +103,8 @@ export default function Hero() {
 
   const handleDownloadCV = () => {
     const link = document.createElement("a")
-    link.href = "/cv/Syifa_Nurzain_CV.pdf"
-    link.download = "Syifa_Nurzain_CV.pdf"
+    link.href = "/cv/CV_SyifaNurzain_ATS.pdf"
+    link.download = "CV_SyifaNurzain_ATS.pdf"
     link.target = "_blank"
 
     document.body.appendChild(link)
@@ -165,7 +165,7 @@ export default function Hero() {
                               <span className="text-terminal-text">.</span>
                               <span className="syntax-highlight">role</span>
                               <span className="text-terminal-text"> = </span>
-                              <span className="syntax-string">'Mobile & Web Developer'</span>
+                              <span className="syntax-string">'Mobile & Web Engineer'</span>
                               <span className="text-terminal-text">;</span>
                             </>
                           )}
@@ -175,7 +175,7 @@ export default function Hero() {
                               <span className="text-terminal-text">.</span>
                               <span className="syntax-highlight">experience</span>
                               <span className="text-terminal-text"> = </span>
-                              <span className="syntax-string">'5+ years'</span>
+                              <span className="syntax-string">'6+ years'</span>
                               <span className="text-terminal-text">;</span>
                             </>
                           )}
@@ -205,13 +205,13 @@ export default function Hero() {
                               <span className="text-terminal-text">() {"{"}</span>
                             </>
                           )}
-                          {line.includes("return ['Java'") && (
+                          {line.includes("return ['Kotlin'") && (
                             <>
                               <span className="ml-2 md:ml-4 syntax-keyword">return </span>
                               <span className="text-terminal-text">[</span>
                               <span className="syntax-string">'Kotlin'</span>
                               <span className="text-terminal-text">, </span>
-                              <span className="syntax-string">'SwiftUI'</span>
+                              <span className="syntax-string">'TypeScript'</span>
                               <span className="text-terminal-text">,</span>
                             </>
                           )}
@@ -220,8 +220,6 @@ export default function Hero() {
                               <span className="ml-6 md:ml-12 syntax-string">'React'</span>
                               <span className="text-terminal-text">, </span>
                               <span className="syntax-string">'Angular'</span>
-                              <span className="text-terminal-text">, </span>
-                              <span className="syntax-string">'Next.js'</span>
                               <span className="text-terminal-text">];</span>
                             </>
                           )}
@@ -267,20 +265,20 @@ export default function Hero() {
                 <div className="mono-font text-sm md:text-base lg:text-lg text-syntax-cyan mb-3 md:mb-4 lg:mb-6 break-words">
                   <span className="syntax-keyword">const</span> <span className="syntax-highlight">role</span>{" "}
                   <span className="text-terminal-text">=</span>{" "}
-                  <span className="syntax-string">"Mobile & Web Developer"</span>
+                  <span className="syntax-string">"Mobile & Web Engineer"</span>
                 </div>
                 <div className="mono-font text-terminal-text leading-relaxed mb-4 md:mb-6 space-y-1 text-sm md:text-base">
                   <div>
-                    <span className="syntax-comment">// Passionate developer with 5+ years experience</span>
+                    <span className="syntax-comment">// Mobile & Web Engineer with 6+ years experience</span>
                   </div>
                   <div>
-                    <span className="syntax-comment">// Specializing in mobile and web development</span>
+                    <span className="syntax-comment">// Android (Kotlin/Jetpack Compose) | React | Angular</span>
                   </div>
                   <div>
-                    <span className="syntax-comment">// Currently building solutions at BCA</span>
+                    <span className="syntax-comment">// Currently at PT Bank Central Asia (BCA)</span>
                   </div>
                   <div>
-                    <span className="syntax-comment">// Always learning new technologies</span>
+                    <span className="syntax-comment">// Banking, Insurance & Consumer products</span>
                   </div>
                 </div>
               </div>

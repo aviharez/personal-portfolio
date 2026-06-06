@@ -5,29 +5,29 @@ import { motion } from "framer-motion"
 export default function Skills() {
   const skillCategories = [
     {
-      title: "mobile_development",
-      icon: "📱",
-      skills: ["Java", "Kotlin", "React Native", "SwiftUI", "Jetpack Compose"],
+      title: "primary_skills",
+      icon: "⭐",
+      skills: ["Kotlin", "Jetpack Compose", "Android SDK", "React", "TypeScript", "Angular"],
     },
     {
-      title: "web_development",
-      icon: "🌐",
-      skills: ["React", "Angular", "JavaScript", "TypeScript", "Next.js"],
+      title: "secondary_skills",
+      icon: "📱",
+      skills: ["SwiftUI", "React Native", "Next.js", "Java", "JavaScript"],
+    },
+    {
+      title: "architecture",
+      icon: "🏗️",
+      skills: ["MVVM", "Clean Architecture", "REST APIs", "Performance Optimization"],
     },
     {
       title: "dev_tools",
       icon: "🛠️",
-      skills: ["Git", "Unity 3D", "CI/CD"],
-    },
-    {
-      title: "databases",
-      icon: "🗄️",
-      skills: ["Realm", "Firebase", "SQLite", "PostgreSQL", "MySQL"],
+      skills: ["Git", "CI/CD", "Google Play", "App Store Deployment"],
     },
     {
       title: "methodologies",
       icon: "📋",
-      skills: ["Agile/Scrum", "Code Review", "Team Leadership", "Mentoring"],
+      skills: ["Agile", "Scrum", "Code Review", "Cross-functional Teams"],
     },
   ]
 

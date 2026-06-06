@@ -86,18 +86,18 @@ export default function About() {
           >
             <div className="space-y-4 md:space-y-6 text-terminal-text">
               <motion.p className="text-sm md:text-base leading-relaxed" variants={itemVariants}>
-                Passionate developer with over 5 years of experience building innovative solutions across mobile and web
-                platforms. Currently serving as an IT Specialist at PT Bank Central Asia, where I contribute to research
-                and development initiatives for mobile and web products.
+                Mobile and Web Engineer with 6+ years of experience delivering production-grade applications in banking,
+                insurance, and consumer products. Currently at PT Bank Central Asia (BCA), one of Indonesia's largest
+                banks, owning end-to-end feature delivery across Android, iOS and web platforms.
               </motion.p>
               <motion.p className="text-sm md:text-base leading-relaxed" variants={itemVariants}>
-                My expertise spans from native Android development with Kotlin and Java to iOS development with SwiftUI,
-                and modern web technologies like React and Angular. I have a proven track record of delivering
-                high-quality cross-platform applications that serve thousands of users.
+                Specializes in Android (Kotlin, Jetpack Compose), React, TypeScript, and Angular, with hands-on iOS
+                experience (SwiftUI). Track record of shipping reliable features at scale, improving code quality, and
+                driving measurable performance gains in Agile, cross-functional teams.
               </motion.p>
               <motion.p className="text-sm md:text-base leading-relaxed" variants={itemVariants}>
-                I believe in writing clean, maintainable code and staying current with emerging technologies to maximize
-                development efficiency and create innovative products.
+                Delivered 10+ major features with zero critical post-release incidents, maintaining 99% uptime SLA in a
+                highly regulated banking environment. Passionate about performance optimization and clean architecture.
               </motion.p>
             </div>
           </motion.div>
@@ -115,9 +115,9 @@ export default function About() {
             >
               <h3 className="pixel-font text-base md:text-lg text-pink-400 mb-4">CURRENT_ROLE</h3>
               <div className="text-terminal-text">
-                <div className="text-green-400 font-semibold">IT Specialist</div>
-                <div className="text-sm">PT Bank Central Asia</div>
-                <div className="text-xs text-gray-400">May 2023 - Present</div>
+                <div className="text-green-400 font-semibold">IT Specialist — Mobile & Web Engineer</div>
+                <div className="text-sm">PT Bank Central Asia (BCA)</div>
+                <div className="text-xs text-gray-400">May 2023 - Present · Tangerang, Indonesia</div>
               </div>
             </motion.div>
 
@@ -133,9 +133,9 @@ export default function About() {
             >
               <h3 className="pixel-font text-base md:text-lg text-blue-400 mb-4">EDUCATION</h3>
               <div className="text-terminal-text">
-                <div className="text-green-400 font-semibold">S1 Informatics Engineering</div>
-                <div className="text-sm">Sekolah Tinggi Teknologi Bandung</div>
-                <div className="text-xs text-gray-400">2016 - 2020 | GPA: 3.78</div>
+                <div className="text-green-400 font-semibold">B.Eng. in Informatics Engineering</div>
+                <div className="text-sm">Sekolah Tinggi Teknologi Bandung (STTB)</div>
+                <div className="text-xs text-gray-400">2016 - 2020 | GPA: 3.78 / 4.00</div>
               </div>
             </motion.div>
 
