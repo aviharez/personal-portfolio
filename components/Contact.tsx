@@ -50,8 +50,7 @@ export default function Contact() {
         </div>
 
         <footer>
-          <span>© 2026 Syifa Nurzain — Mobile &amp; Web Engineer</span>
-          <span>Set in Instrument Serif · Space Grotesk · JetBrains Mono</span>
+          <span>© 2026 Syifa Nurzain</span>
           <span className="top" data-top>Back to top ↑</span>
         </footer>
       </div>

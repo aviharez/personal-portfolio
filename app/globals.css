@@ -329,6 +329,7 @@ section { position: relative; }
   .work-track { flex-direction: column; transform: none !important; padding: 0 var(--gutter); }
   .proj { width: 100%; height: auto; grid-template-columns: 1fr; }
   .proj-media { height: 240px; position: relative; }
+  .proj-link { margin-top: 24px; }
 }
 [data-motion="min"] .work-pin { height: auto; }
 [data-motion="min"] .work-sticky { height: auto; position: static; display: block; padding: 40px 0 90px; }

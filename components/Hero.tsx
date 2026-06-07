@@ -39,7 +39,7 @@ export default function Hero() {
 
         <div className="hero-bottom">
           <a className="scroll-cue mag" data-mag="0.2" href="#s-story">
-            <span className="bar" /> Scroll to begin
+            <span className="bar" /> 
           </a>
           <div className="hero-coords" data-fade>
             {HERO.coords}<br />{HERO.availability}

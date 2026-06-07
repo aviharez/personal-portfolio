@@ -74,7 +74,7 @@ export const PROJECTS: Project[] = [
     idx: '01',
     year: '2026',
     title: 'myBCA Bisnis Lite',
-    category: 'Android & iOS',
+    category: 'Banking',
     role: 'Mobile Developer',
     description:
       'A mobile companion app for myBCA Bisnis, BCA\'s corporate cash management platform. The app replaces the traditional hardware token with a fully digital solution, enabling KeyBCA Appli code generation and PIN-based transaction authorization natively on mobile, without requiring web portal access.',
@@ -88,8 +88,8 @@ export const PROJECTS: Project[] = [
     idx: '02',
     year: '2024',
     title: 'myBCA Bisnis',
-    category: 'Web',
-    role: 'Front End Developer',
+    category: 'Banking',
+    role: 'Frontend Developer',
     description:
       'A web-based corporate internet banking platform by BCA, engineered to handle the full spectrum of business cash management needs within a single system. The platform supports real-time transaction monitoring, bulk payments, cross-border transfers, invoice management, and Host-to-Host integration, allowing businesses to connect their internal systems directly to the platform.',
     tags: ['Angular', 'TypeScript'],
@@ -101,35 +101,35 @@ export const PROJECTS: Project[] = [
   {
     idx: '03',
     year: '2023',
-    title: 'Mythic Portal',
+    title: 'Mythic Protocol',
     category: 'Gaming',
-    role: 'Frontend Engineer',
+    role: 'Frontend Developer',
     description:
       'A cross-product web ecosystem for Confiction Labs, unifying gaming, digital collectibles, and community engagement into a single platform. Built to handle user progression, clearance-based access control, quest systems, and cross-platform reward distribution across interconnected products like RIFTSTORM and the Portal.',
     tags: ['React', 'TypeScript', 'Spine.js'],
     url: 'https://one.confiction.com/portal',
     mediaLabel: '// gaming portal',
     gradient: 'repeating-linear-gradient(-45deg, var(--bg) 0 14px, var(--bg-2) 14px 28px)',
-    image: 'mythic.jpeg',
+    image: 'mp.jpeg',
   },
   {
     idx: '04',
     year: '2023',
     title: 'Fantasy Team',
     category: 'Gamification',
-    role: 'Frontend Engineer',
+    role: 'Frontend Developer',
     description:
       'Fantasy sports platform transforming soccer fandom into interactive gaming — build dream teams, implement strategic formations, and compete globally based on real-world player performances.',
     tags: ['React', 'JavaScript'],
     url: 'https://www.vidio.com/fantasy-team',
     mediaLabel: '// fantasy sports',
     gradient: 'repeating-linear-gradient(45deg, var(--bg) 0 14px, var(--bg-2) 14px 28px)',
-    image: 'fantasy-team.webp',
+    image: 'lisa.jpeg',
   },
   {
     idx: '05',
     year: '2022',
-    title: 'Activity Management',
+    title: 'Activity Management System',
     category: 'Insurance',
     role: 'Android Lead',
     description:
@@ -152,7 +152,7 @@ export const PROJECTS: Project[] = [
     url: 'https://ppdb.yayasanloyola.org/#/login',
     mediaLabel: '// school admission',
     gradient: 'repeating-linear-gradient(-45deg, var(--bg) 0 14px, var(--bg-2) 14px 28px)',
-    image: 'loyola-ppdb.webp',
+    image: 'loyola.jpeg',
   },
 ]
 
