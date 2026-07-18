@@ -78,7 +78,7 @@ export const PROJECTS: Project[] = [
     role: 'Mobile Developer',
     description:
       'A mobile companion app for myBCA Bisnis, BCA\'s corporate cash management platform. The app replaces the traditional hardware token with a fully digital solution, enabling KeyBCA Appli code generation and PIN-based transaction authorization natively on mobile, without requiring web portal access.',
-    tags: ['Kotlin', 'Jetpack Compose', 'SwiftUI'],
+    tags: ['Android', 'iOS', 'Kotlin', 'Jetpack Compose', 'SwiftUI'],
     url: 'https://play.google.com/store/apps/details?id=com.bca.mybcabisnislite',
     mediaLabel: '// enterprise banking',
     gradient: 'repeating-linear-gradient(45deg, var(--bg) 0 14px, var(--bg-2) 14px 28px)',
@@ -133,8 +133,8 @@ export const PROJECTS: Project[] = [
     category: 'Insurance',
     role: 'Android Lead',
     description:
-      'An Android application built for insurance professionals to manage sales pipelines and recruiting activities in one place. The app handles contact syncing, activity scheduling, and reminder management while providing data-driven insights across each stage of the sales funnel, giving both individual agents and team leads a clear view of performance, open pipelines, and areas for improvement.',
-    tags: ['Java', 'Kotlin', 'Firebase', 'Realm'],
+      'An Android application for insurance professionals to manage sales pipelines and recruiting activities in one place. The app handles contact syncing, activity scheduling, and reminder management while delivering data-driven insights across each stage of the sales funnel.',
+    tags: ['Android', 'Java', 'Kotlin', 'Firebase', 'Realm'],
     url: 'https://play.google.com/store/apps/details?id=id.co.tokiomarine_life.salesmanagementactivity',
     mediaLabel: '// insurance CRM',
     gradient: 'repeating-linear-gradient(45deg, var(--bg) 0 14px, var(--bg-2) 14px 28px)',

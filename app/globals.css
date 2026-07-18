@@ -300,7 +300,7 @@ section { position: relative; }
 .work-pin { height: 580vh; position: relative; }
 
 .proj {
-  position: relative; flex: 0 0 auto; width: min(76vw, 880px); height: 64vh; min-height: 460px;
+  position: relative; flex: 0 0 auto; width: min(76vw, 880px); height: 74vh; min-height: 460px;
   background: var(--surface); border: 1px solid var(--line);
   display: grid; grid-template-columns: 1.1fr 1fr; overflow: hidden;
   transition: transform 0.4s var(--ease), border-color 0.4s var(--ease);

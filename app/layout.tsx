@@ -3,8 +3,6 @@ import type { Metadata } from 'next'
 import { Instrument_Serif, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Interactions from '@/components/Interactions'
-import { Analytics } from '@vercel/analytics/next'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
@@ -68,8 +66,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="cursor-ring" aria-hidden="true" />
         {children}
         <Interactions />
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   )
